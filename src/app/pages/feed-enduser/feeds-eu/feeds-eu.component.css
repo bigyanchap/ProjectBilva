@@ -1,0 +1,55 @@
+:host{
+  display: block;
+  margin-top: 1rem;
+}
+
+.spinner{
+  position:absolute;
+    width:100px;
+    height:100px;
+    background:rgb(216, 186, 244);
+    bottom:0px;
+    right:25%;
+    left:50%;
+    margin-left:-50px;
+    border-radius: 20px;
+}
+.quote-image{
+  height:200px;
+}
+img{
+  width: 300px;
+  height: 300px;
+  box-shadow: 10px 5px 5px rgb(205, 170, 227,0.5);
+}
+mat-paginator{
+  margin-top: 1rem;
+}
+.qoute-card {
+  max-width: 200px;
+}
+
+.header-image {
+  background-size: cover;
+}
+mat-card{
+  width: 90%;
+  height: 90%;
+  box-sizing: border-box;
+  background-color: whitesmoke;
+  border-radius: 20px !important;
+  padding:1rem;
+  margin:1rem;
+}
+
+
+.grid {
+  display: grid;
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  grid-gap: 20px;
+}

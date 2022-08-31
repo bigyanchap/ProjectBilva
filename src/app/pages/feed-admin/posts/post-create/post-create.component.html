@@ -1,0 +1,27 @@
+
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="postForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput
+      type="text"
+      formControlName="title"
+      placeholder="Post Title"/>
+      <!-- <mat-error *ngIf="title.invalid">Enter a post title.</mat-error> -->
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput rows="3"
+      formControlName="content"
+      minlength="3"
+      placeholder="Post Content"></textarea>
+      <!-- <mat-error *ngIf="title.invalid">Enter a content.</mat-error> -->
+    </mat-form-field>
+    <br>
+    <button mat-raised-button
+     type="submit"
+     color="primary" (click)="onSavePost()">Save Post</button>
+     <br>
+
+  </form>
+</mat-card>
+<!-- string interpolation -->

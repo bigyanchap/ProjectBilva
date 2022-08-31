@@ -1,0 +1,28 @@
+<mat-accordion multi="true" *ngIf="quotes.length>0 && !isLoading">
+  <mat-expansion-panel *ngFor="let quote of quotes">
+    <mat-expansion-panel-header>
+      {{quote.title}}
+    </mat-expansion-panel-header>
+    <p>{{quote.content}}</p>
+    <div class="quote-image">
+      <img [src]="quote.imagePath" [alt]="quote.title">
+    </div>
+    <mat-action-row>
+      <a mat-button color="accent" routerLink="/feed-admin/quote-upsert/{{quote.id}}">
+        EDIT
+      </a>
+      <button mat-button color="warn" (click)="onDelete(quote.id)">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-paginator
+  [length]="totalQuotes"
+  [pageSize]="queryParams.pagesize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="onChangedPage($event)"
+  *ngIf="quotes.length>0">
+</mat-paginator>
+<p class="info-text mat-body-1" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+  <span>Loading...</span>
+</p>

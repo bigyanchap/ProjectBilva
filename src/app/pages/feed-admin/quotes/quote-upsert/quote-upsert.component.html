@@ -1,0 +1,42 @@
+
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="quoteForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput
+      type="text"
+      formControlName="title"
+      placeholder="Quote Title"/>
+      <mat-error *ngIf="quoteForm.get('title').invalid">
+        Quote Title is required with minimum length 3 of characters.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput rows="3"
+      formControlName="content"
+      minlength="3"
+      placeholder="Quote Content"></textarea>
+      <!-- <mat-error *ngIf="title.invalid">Enter a content.</mat-error> -->
+    </mat-form-field>
+    <br>
+    <div>
+      <button mat-stroked-button type="button" (click)="filePicker.click()" >Pick Image</button>
+      <input type="file" #filePicker (change)="onImagePicked($event)">
+        <!-- filePicker.click() executes click method on the click listener-->
+        <!-- We hide the <input type="file"> using 'hidden' in css -->
+        <!-- That's because the input picks file but it looks ugly. -->
+        <!-- #filePicker is local reference -->
+    </div>
+    <div class="image-preview" *ngIf="imagePreview != '' && imagePreview && quoteForm.get('image').valid">
+      <img [src]="imagePreview" [alt]="quoteForm.value.title">
+    </div>
+    <br>
+    <button mat-raised-button
+     type="submit"
+     color="primary" (click)="onSaveQuote()">Save Quote</button>
+     <br>
+
+  </form>
+</mat-card>
+<!-- string interpolation -->

@@ -1,0 +1,21 @@
+
+<mat-grid-list cols="2">
+  <mat-grid-tile  *ngFor="let quote of quotes">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{quote.title}}</mat-card-title>
+        <mat-card-subtitle>{{quote.content}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <img [src]="quote.imagePath" [alt]="quote.title">
+        <p>{{quote.content}}</p>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+<p class="spinner" *ngIf="isLoading && !loadedAll">
+  <mat-spinner></mat-spinner>
+  <span>Loading...</span>
+</p>

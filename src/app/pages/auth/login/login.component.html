@@ -1,0 +1,24 @@
+
+<mat-card>
+  <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+    <mat-form-field>
+      <input matInput
+      type="email" name="email" [(ngModel)]="email"
+       #emailInput="ngModel"
+      placeholder="Email" required email/>
+      <mat-error *ngIf="emailInput.invalid">Valid Email is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password"
+      name="password" [(ngModel)]="password"
+      minlength="6" #passwordInput="ngModel"
+      placeholder="Password" required>
+      <mat-error *ngIf="passwordInput.invalid">Valid password with minimum 6 characters is required.</mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button
+     type="submit"
+     color="primary">Login</button>
+     <br>
+  </form>
+</mat-card>

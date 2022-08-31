@@ -1,0 +1,39 @@
+
+<mat-card>
+  <form (submit)="onSignup(signupForm)" #signupForm="ngForm">
+    <mat-form-field>
+      <input matInput
+        type="text" name="firstname" ngModel
+        #firstNameInput="ngModel"
+        placeholder="Firstname" required/>
+      <mat-error *ngIf="firstNameInput.invalid">Firstname is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+        type="text" name="lastname" ngModel
+        #lastNameInput="ngModel"
+        placeholder="Lastname" required/>
+      <mat-error *ngIf="lastNameInput.invalid">Lastname is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+        type="email" name="email" ngModel
+        #emailInput="ngModel"
+        placeholder="Email" required email/>
+      <mat-error *ngIf="emailInput.invalid">Valid Email is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password"
+      name="password" ngModel
+      minlength="6" #passwordInput="ngModel"
+      placeholder="Password" required>
+      <mat-error *ngIf="passwordInput.invalid">Valid password with minimum 6 characters is required.</mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button
+     type="submit"
+     color="primary">Sign Up</button>
+     <br>
+
+  </form>
+</mat-card>

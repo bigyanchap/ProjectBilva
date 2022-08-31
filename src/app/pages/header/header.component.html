@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+  <span>
+    <a routerLink="/">
+      BilvaLeaf
+    </a>
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/feed-admin/post-create" routerLinkActive="mat-accent">Post Create</a>
+    </li>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/feed-admin/quote-upsert" routerLinkActive="mat-accent">Quote Create</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/auth/signup" routerLinkActive="mat-accent" *ngIf="!userIsAuthenticated">Sign Up</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/auth/login" routerLinkActive="mat-accent" *ngIf="!userIsAuthenticated">Login</a>
+    </li>
+    <li>
+      <button mat-button *ngIf="userIsAuthenticated" (click)="onLogOut()">Log out</button>
+    </li>
+  </ul>
+</mat-toolbar>

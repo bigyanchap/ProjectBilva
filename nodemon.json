@@ -1,0 +1,7 @@
+{
+  "env":{
+    "MONGO_ATLAS_username":"xxxxxxxxxxx",
+    "MONGO_ATLAS_password":"yyyyyyyyyyy",
+    "JWT_KEY":"my_secret_absurdie__which_is_much_like_passwordie"
+  }
+}
